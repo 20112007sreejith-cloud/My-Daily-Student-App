@@ -1,32 +1,63 @@
-# React + TypeScript + Vite
+# 🌸 Katana - Daily Student Companion
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Katana is a beautiful, dynamic daily planner and timetable application designed for students (specifically built with VIT-AP in mind, but flexible for anyone). It features a sleek glassmorphic UI, smooth animations, and a background that subtly changes based on the time of day.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **🧠 AI-Powered Timetable Import**: Paste your raw timetable text and Katana uses the Gemini AI API to automatically parse your classes, rooms, timings, and labs instantly.
+- **🌅 Dynamic Environment**: The app's background and color palette seamlessly shift between Morning, Afternoon, Evening, and Night, complete with beautiful static cherry blossoms during the day.
+- **📅 Smart Dashboard**: Get a quick overview of your "Up Next" classes, current weather, and unread notifications at a single glance.
+- **✅ To-Do & Task Management**: A fully integrated task manager with due dates, priority tags, and a "Focus Mode" to help you get things done.
+- **🍽️ Mess Menu**: Keep track of your daily meals easily.
+- **📱 Native Mobile Ready**: Built using web technologies but fully prepared to be compiled into a native Android `.apk` using Capacitor.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Pure CSS (Glassmorphism, custom CSS variables, responsive design)
+- **Icons**: Lucide React
+- **Mobile Runtime**: Capacitor (for Android bridging)
+- **AI Integration**: Google Gemini API
 
-## Expanding the Oxlint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/20112007sreejith-cloud/My-Daily-Student-App.git
+   cd My-Daily-Student-App
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Building the Android APK
+If you have Android Studio and Java/Gradle installed:
+1. Build the web project:
+   ```bash
+   npm run build
+   ```
+2. Sync with Capacitor:
+   ```bash
+   npx cap sync android
+   ```
+3. Build the APK using Gradle (or open in Android Studio):
+   ```bash
+   cd android
+   ./gradlew assembleDebug
+   ```
+
+## ⚙️ Settings & Configuration
+To use the AI Timetable extraction feature, you will need to generate a free API key from Google AI Studio and enter it into the app's **Settings** tab. All data (timetable, todos, preferences) is stored locally on your device for maximum privacy and speed.
+
+---
+*Built with ❤️ and a lot of caffeine.*
