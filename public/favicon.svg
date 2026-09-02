@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="rotate(-45 50 50)">
+    <!-- Handle -->
+    <rect x="46" y="70" width="8" height="25" rx="2" fill="#5e5954" />
+    <line x1="46" y1="75" x2="54" y2="75" stroke="#f7f5f2" stroke-width="1" />
+    <line x1="46" y1="80" x2="54" y2="80" stroke="#f7f5f2" stroke-width="1" />
+    <line x1="46" y1="85" x2="54" y2="85" stroke="#f7f5f2" stroke-width="1" />
+    
+    <!-- Tsuba (Guard) -->
+    <rect x="42" y="66" width="16" height="4" rx="1" fill="#2d2b2a" />
+    
+    <!-- Blade -->
+    <path d="M 48 66 L 48 15 Q 50 5 50 5 Q 50 5 52 15 L 52 66 Z" fill="#e0e0e0" />
+    <!-- Blade edge highlight -->
+    <path d="M 50 15 Q 50 5 50 5 Q 50 5 52 15 L 52 66 L 50 66 Z" fill="#ffffff" opacity="0.6" />
+  </g>
+</svg>
