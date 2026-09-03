@@ -12,7 +12,7 @@ import { NotificationPanel } from '../components/notifications/NotificationPanel
 export const DashboardView: React.FC<{ onChangeView: (view: string) => void }> = ({ onChangeView }) => {
   const { formattedTime, formattedDate, currentEvent, nextEvent } = useClock();
   const { tasks } = useTodos();
-  const { unreadCount } = useNotifications();
+  const { unreadCount, addNotification } = useNotifications();
   const [showNotifications, setShowNotifications] = useState(false);
   const [greeting, setGreeting] = useState(() => {
     const hour = new Date().getHours();
@@ -49,7 +49,13 @@ export const DashboardView: React.FC<{ onChangeView: (view: string) => void }> =
               <p className="text-body" style={{ fontWeight: 600 }}>{formattedDate}</p>
             </div>
           </div>
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <button 
+              onClick={() => addNotification('System Demo', 'This is a test notification!', 'INFO')}
+              style={{ padding: '8px 16px', background: 'var(--accent-color)', color: '#fff', borderRadius: '12px', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}
+            >
+              Demo Notif
+            </button>
             <button 
               className="glass-button" 
               onClick={() => setShowNotifications(!showNotifications)}
