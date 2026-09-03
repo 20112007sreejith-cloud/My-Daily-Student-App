@@ -178,10 +178,12 @@ export const TodoView: React.FC = () => {
                   right: 0, 
                   marginTop: '8px', 
                   padding: '16px', 
-                  zIndex: 10,
+                  zIndex: 150,
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '12px',
+                  background: 'var(--bg-color)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

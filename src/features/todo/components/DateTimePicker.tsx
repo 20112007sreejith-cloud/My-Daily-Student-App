@@ -60,9 +60,9 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({ initialDate, onS
   }, []);
 
   return (
-    <div style={{ display: 'flex', gap: '24px', padding: '8px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '8px' }}>
       {/* Calendar Section */}
-      <div style={{ width: '250px' }}>
+      <div style={{ width: '100%', maxWidth: '300px', margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
           <button 
             onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
@@ -117,14 +117,17 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({ initialDate, onS
         </div>
       </div>
 
+      <div style={{ height: '1px', background: 'var(--glass-border)', width: '100%' }} />
+
       {/* Scrolling Time Section */}
-      <div style={{ display: 'flex', gap: '8px', height: '240px', position: 'relative' }}>
+      <div style={{ display: 'flex', gap: '8px', height: '160px', position: 'relative', justifyContent: 'center' }}>
         {/* Selection overlay */}
         <div style={{ 
           position: 'absolute', 
-          top: '100px', 
-          left: 0, 
-          right: 0, 
+          top: '60px', 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          width: '140px', 
           height: '40px', 
           background: 'rgba(0,122,255,0.1)', 
           borderRadius: '8px',
@@ -142,7 +145,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({ initialDate, onS
             scrollSnapType: 'y mandatory',
             scrollbarWidth: 'none', // Firefox
             msOverflowStyle: 'none', // IE
-            padding: '100px 0' // padding to allow first/last items to reach center
+            padding: '60px 0' // padding to allow first/last items to reach center
           }}
           className="no-scrollbar"
         >
@@ -178,7 +181,7 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({ initialDate, onS
             overflowY: 'auto', 
             scrollSnapType: 'y mandatory',
             scrollbarWidth: 'none',
-            padding: '100px 0'
+            padding: '60px 0'
           }}
           className="no-scrollbar"
         >

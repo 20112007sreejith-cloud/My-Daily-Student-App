@@ -29,7 +29,7 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({ onClose })
   };
 
   return (
-    <div className="glass-panel notification-panel" style={{
+      <div className="glass-panel notification-panel" style={{
       position: 'absolute',
       right: '0',
       top: '100%',
@@ -41,7 +41,8 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({ onClose })
       zIndex: 100,
       borderRadius: '20px',
       border: '1px solid var(--glass-border)',
-      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
+      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+      background: 'var(--bg-color)',
       overflow: 'hidden',
       animation: 'fadeIn 0.2s ease-out'
     }}>

@@ -53,7 +53,9 @@ export const NotificationToastManager: React.FC = () => {
         alignItems: 'flex-start',
         gap: '12px',
         borderRadius: '16px',
-        border: '1px solid var(--glass-border)'
+        border: '1px solid var(--glass-border)',
+        background: 'var(--bg-color)',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
       }}>
         <div style={{ marginTop: '2px' }}>
           {getIcon()}
@@ -63,7 +65,10 @@ export const NotificationToastManager: React.FC = () => {
           <p className="text-metadata">{notification.message}</p>
         </div>
         <button 
-          onClick={() => setActiveToast(null)}
+          onClick={() => {
+            setActiveToast(null);
+            removeNotification(notification.id);
+          }}
           style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '4px' }}
         >
           <X size={16} />

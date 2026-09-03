@@ -6,7 +6,7 @@ import { BreakCard } from '../components/BreakCard';
 import { DashboardAtmosphere } from '../features/dashboard/components/DashboardAtmosphere';
 import { WeatherCard } from '../features/dashboard/components/WeatherCard';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
-import { Calendar, CheckSquare, Bell } from 'lucide-react';
+import { Calendar, CheckSquare, Bell, Sun, Moon } from 'lucide-react';
 import { useNotifications } from '../contexts/NotificationContext';
 import { NotificationPanel } from '../components/notifications/NotificationPanel';
 export const DashboardView: React.FC<{ onChangeView: (view: string) => void }> = ({ onChangeView }) => {
@@ -55,7 +55,11 @@ export const DashboardView: React.FC<{ onChangeView: (view: string) => void }> =
               onClick={() => setShowNotifications(!showNotifications)}
               style={{ width: '48px', height: '48px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', cursor: 'pointer' }}
             >
-              <Bell size={24} />
+              {(() => {
+                const hour = new Date().getHours();
+                if (hour >= 5 && hour < 17) return <Sun size={24} />;
+                return <Moon size={24} />;
+              })()}
               {unreadCount > 0 && (
                 <span style={{ position: 'absolute', top: '8px', right: '10px', width: '10px', height: '10px', background: 'var(--accent-color)', borderRadius: '50%', border: '2px solid var(--app-bg)' }} />
               )}
