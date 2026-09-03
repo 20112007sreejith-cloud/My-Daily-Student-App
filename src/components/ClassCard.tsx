@@ -82,7 +82,7 @@ export const ClassCard: React.FC<ClassCardProps> = ({ event, isActive = false })
     if (isActive) return 'live';
     const now = getCurrentTime();
     const end = parseTimeString(event.endTime);
-    if (now > end) return 'completed';
+    if (now > end) return 'ended';
     return 'upcoming';
   };
 
