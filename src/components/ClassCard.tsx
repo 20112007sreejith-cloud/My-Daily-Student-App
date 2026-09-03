@@ -81,6 +81,19 @@ export const ClassCard: React.FC<ClassCardProps> = ({ event, isActive = false })
   const getStatusVariant = () => {
     if (isActive) return 'live';
     const now = getCurrentTime();
+    
+    const todayIndex = now.getDay();
+    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+    const eventDayIndex = days.indexOf(event.day);
+    
+    if (eventDayIndex !== -1) {
+      if (todayIndex === 0) {
+        return 'upcoming';
+      }
+      if (eventDayIndex < todayIndex) return 'ended';
+      if (eventDayIndex > todayIndex) return 'upcoming';
+    }
+
     const end = parseTimeString(event.endTime);
     if (now > end) return 'ended';
     return 'upcoming';
