@@ -5,17 +5,9 @@ export const KatanaSplash: React.FC<{ onComplete: () => void }> = ({ onComplete 
   const [shouldSkip, setShouldSkip] = useState(false);
 
   useEffect(() => {
-    // 1. Check if recently opened
-    if (sessionStorage.getItem('katana_splashed')) {
-      setShouldSkip(true);
-      onComplete();
-      return;
-    }
-
-    // 2. Check reduced motion
+    // 1. Check reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      sessionStorage.setItem('katana_splashed', 'true');
       setShouldSkip(true);
       onComplete();
       return;
