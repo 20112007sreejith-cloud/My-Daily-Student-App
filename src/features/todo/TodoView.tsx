@@ -15,8 +15,8 @@ export const TodoView: React.FC = () => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const handleQuickAdd = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && newTaskTitle.trim()) {
+  const saveTask = () => {
+    if (newTaskTitle.trim()) {
       let finalDueDate: string | undefined = newDate ? newDate.toISOString() : undefined;
       let finalDueTime: string | undefined = undefined;
       
@@ -45,6 +45,12 @@ export const TodoView: React.FC = () => {
       setNewTaskTitle('');
       setNewDate(null);
       setShowDatePicker(false);
+    }
+  };
+
+  const handleQuickAdd = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      saveTask();
     }
   };
 
@@ -225,7 +231,13 @@ export const TodoView: React.FC = () => {
                     </button>
                   )}
                   <button 
-                    onClick={() => setShowDatePicker(false)}
+                    onClick={() => {
+                      if (newTaskTitle.trim()) {
+                        saveTask();
+                      } else {
+                        setShowDatePicker(false);
+                      }
+                    }}
                     style={{ 
                       flex: 1,
                       padding: '8px', 
