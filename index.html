@@ -10,6 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div id="native-splash" style="position: fixed; inset: 0; background-color: #111111; z-index: 99999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <svg width="64" height="64" viewBox="0 0 100 100" style="transform: rotate(-45deg); margin-bottom: 24px;">
+        <!-- Handle -->
+        <rect x="46" y="70" width="8" height="25" rx="2" fill="#888888" />
+        <line x1="46" y1="75" x2="54" y2="75" stroke="#111111" stroke-width="1" />
+        <line x1="46" y1="80" x2="54" y2="80" stroke="#111111" stroke-width="1" />
+        <line x1="46" y1="85" x2="54" y2="85" stroke="#111111" stroke-width="1" />
+        <line x1="46" y1="90" x2="54" y2="90" stroke="#111111" stroke-width="1" />
+        <!-- Tsuba -->
+        <rect x="42" y="66" width="16" height="4" rx="1" fill="#FF9F0A" />
+        <!-- Blade -->
+        <path d="M 46 66 L 47 15 Q 50 5 53 15 L 54 66 Z" fill="#e0e0e0" />
+        <!-- Hamon -->
+        <path d="M 47.5 66 L 48.5 15 Q 50 5 51.5 15 L 52.5 66 Z" fill="#ffffff" opacity="0.6" />
+      </svg>
+      <div style="color: #ffffff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 6px;">KATANA</div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

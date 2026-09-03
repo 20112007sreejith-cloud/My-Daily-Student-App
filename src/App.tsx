@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { ClockProvider } from './contexts/ClockContext';
 import { NotificationProvider } from './contexts/NotificationContext';
@@ -11,10 +11,8 @@ import { AmbientEnvironment } from './components/environment/AmbientEnvironment'
 
 import { NotificationToastManager } from './components/notifications/NotificationToast';
 import { useNotificationEngine } from './components/notifications/useNotificationEngine';
-import { KatanaSplash } from './components/KatanaSplash';
 
 function AppContent() {
-  const [showSplash, setShowSplash] = useState(true);
   const [currentView, setCurrentView] = useState('dashboard');
 
   // Initialize the smart notification engine
@@ -31,18 +29,28 @@ function AppContent() {
     }
   };
 
+  useEffect(() => {
+    // Remove the static HTML splash screen once React has rendered
+    const splash = document.getElementById('native-splash');
+    if (splash) {
+      // Add a small delay for a smooth transition, then fade it out
+      setTimeout(() => {
+        splash.style.transition = 'opacity 0.5s ease';
+        splash.style.opacity = '0';
+        setTimeout(() => splash.remove(), 500);
+      }, 100);
+    }
+  }, []);
+
   return (
-    <>
-      {showSplash && <KatanaSplash onComplete={() => setShowSplash(false)} />}
-      <AmbientEnvironment showCelestial={currentView === 'dashboard' && !showSplash}>
-        <div className="app-container" style={{ opacity: showSplash ? 0 : 1, transition: 'opacity 0.6s ease-in-out' }}>
-          <Navigation currentView={currentView} onChangeView={setCurrentView} />
-          <main className="main-content fade-in">
-            {renderView()}
-          </main>
-        </div>
-      </AmbientEnvironment>
-    </>
+    <AmbientEnvironment showCelestial={currentView === 'dashboard'}>
+      <div className="app-container" style={{ opacity: 1, transition: 'opacity 0.6s ease-in-out' }}>
+        <Navigation currentView={currentView} onChangeView={setCurrentView} />
+        <main className="main-content fade-in">
+          {renderView()}
+        </main>
+      </div>
+    </AmbientEnvironment>
   );
 }
 
