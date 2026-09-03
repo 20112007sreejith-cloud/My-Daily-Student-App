@@ -98,6 +98,8 @@ export const DateTimePicker: React.FC<DateTimePickerProps> = ({ initialDate, onS
                 onClick={() => handleDayClick(day)}
                 style={{
                   height: '32px',
+                  width: '32px',
+                  margin: '0 auto',
                   borderRadius: '50%',
                   border: 'none',
                   background: isSelected ? 'var(--accent-color)' : 'transparent',
