@@ -22,11 +22,11 @@
   --ambient-glow-1: rgba(230, 230, 240, 0.4);
   --ambient-glow-2: rgba(255, 183, 197, 0.2); /* Sakura */
 
-  --accent-color: #2d2b2a; /* Deep charcoal for accents */
-  --danger-color: #b74a4a; /* Muted red */
-  --success-color: #5c7257; /* Muted green */
-  --warning-color: #c98a4b; /* Muted orange */
-  --break-color: #798296; /* Subtle indigo */
+  --accent-color: #007AFF; /* Vibrant Blue for classes */
+  --danger-color: #FF3B30; /* Vibrant red */
+  --success-color: #34C759; /* Vibrant green for lunch */
+  --warning-color: #FF9500; /* Vibrant orange */
+  --break-color: #AF52DE; /* Vibrant purple for break */
   
   --sakura-pink: #ffb7c5;
   --katana-silver: #e0e0e0;
@@ -55,11 +55,11 @@
     --ambient-glow-1: rgba(121, 130, 150, 0.1);
     --ambient-glow-2: rgba(183, 74, 74, 0.1);
 
-    --accent-color: #f0ece1; /* Ivory */
-    --danger-color: #b74a4a; /* Muted crimson */
-    --success-color: #5c7257; 
-    --warning-color: #c98a4b; 
-    --break-color: #798296; /* Subtle indigo */
+    --accent-color: #0A84FF; /* Vibrant Blue for classes */
+    --danger-color: #FF453A; /* Vibrant red */
+    --success-color: #30D158; /* Vibrant green for lunch */
+    --warning-color: #FF9F0A; /* Vibrant orange */
+    --break-color: #BF5AF2; /* Vibrant purple for break */
     
     --sakura-pink: #d18a97;
     --katana-silver: #8c8c8c;

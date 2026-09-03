@@ -175,7 +175,8 @@ export const TodoView: React.FC = () => {
                 style={{ 
                   position: 'absolute', 
                   top: '100%', 
-                  right: 0, 
+                  left: '50%',
+                  transform: 'translateX(-50%)',
                   marginTop: '8px', 
                   padding: '16px', 
                   zIndex: 150,
@@ -202,26 +203,43 @@ export const TodoView: React.FC = () => {
                   onClose={() => setShowDatePicker(false)} 
                 />
                 
-                {newDate && (
+                <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                  {newDate && (
+                    <button 
+                      onClick={() => {
+                        setNewDate(null);
+                        setShowDatePicker(false);
+                      }}
+                      style={{ 
+                        flex: 1,
+                        padding: '8px', 
+                        borderRadius: '8px', 
+                        border: 'none', 
+                        background: 'rgba(255,59,48,0.1)', 
+                        color: 'var(--danger-color)', 
+                        cursor: 'pointer',
+                        fontWeight: 600
+                      }}
+                    >
+                      Clear Date
+                    </button>
+                  )}
                   <button 
-                    onClick={() => {
-                      setNewDate(null);
-                      setShowDatePicker(false);
-                    }}
+                    onClick={() => setShowDatePicker(false)}
                     style={{ 
+                      flex: 1,
                       padding: '8px', 
                       borderRadius: '8px', 
                       border: 'none', 
-                      background: 'rgba(255,59,48,0.1)', 
-                      color: 'var(--danger-color)', 
+                      background: 'var(--accent-color)', 
+                      color: '#fff', 
                       cursor: 'pointer',
-                      fontWeight: 600,
-                      marginTop: '4px'
+                      fontWeight: 600
                     }}
                   >
-                    Clear Date
+                    Done
                   </button>
-                )}
+                </div>
               </GlassCard>
             )}
           </div>
